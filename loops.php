@@ -40,26 +40,39 @@
 
 	//foreach
 
-	$colors = array("Red", "Green", "Blue");
+	// $colors = array("Red", "Green", "Blue");
 
-	foreach($colors as $value){
-		echo $value . "<br>";
-	}
+	// foreach($colors as $value){
+	// 	echo $value . "<br>";
+	// }
 
-   echo "<br>";
-	$superhero = array(
-		"name" => "Peter Parker",
-		"email" => "peter@gmail.com",
-		"age" => 18
-	);
+ //   echo "<br>";
+	// $superhero = array(
+	// 	"name" => "Peter Parker",
+	// 	"email" => "peter@gmail.com",
+	// 	"age" => 18
+	// );
 
-	foreach ($superhero as $key => $value) {
-		echo $key . " : " . $value;
-	}
+	// foreach ($superhero as $key => $value) {
+	// 	echo $key . " : " . $value;
+	// }
 
 	 ?>
 
-	 <?php whatistoday(); ?>
+	 <?php 
+
+	 //whatistoday(); 
+
+	 //getsum(20, 30);
+
+	//addition();
+	//echo $z;
+
+	 ?>
+
+
+
+
 
 </body>
 </html>
