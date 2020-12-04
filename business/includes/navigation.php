@@ -16,10 +16,10 @@
         <a class="nav-link" href="locations.php">Locations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Get Listed</a>
+        <a class="nav-link" href="add_business.php">Get Listed</a>
       </li>
      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="contact-us.php">Contact Us</a>
       </li>
      
     </ul>
