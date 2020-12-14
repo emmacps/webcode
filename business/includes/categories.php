@@ -8,28 +8,49 @@
         <div class="row">
             <div class="col-sm-6"> 
                <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action active">
+                  <h3 class="list-group-item list-group-item-action active">
                    Categories
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action">Aviation</a>
-                  <a href="#" class="list-group-item list-group-item-action">Oil and Gas</a>
-                  <a href="#" class="list-group-item list-group-item-action">Tech Companies</a>
-                  <a href="#" class="list-group-item list-group-item-action">Fashion</a>
-                  <a href="#" class="list-group-item list-group-item-action">Marketing and Consultancy</a>
-                  <a href="#" class="list-group-item list-group-item-action">Advertising</a>
+                  </h3>
+
+                  <?php 
+
+                  // read data from categories table
+                  $query = "SELECT * FROM categories";
+                  $select_all_categories = mysqli_query($connection, $query);
+
+                  while($row = mysqli_fetch_assoc($select_all_categories)){
+                    $cat_title = $row['cat_title'];
+
+                    echo  "<a href='#' class='list-group-item list-group-item-action'>{$cat_title}</a>";
+
+                  }
+
+                   ?>
+
                 </div>
             </div>
              <div class="col-sm-6">
                 <div class="list-group">
-                  <a href="#" class="list-group-item list-group-item-action active">
+                  <h3 class="list-group-item list-group-item-action active">
                    Locations
-                  </a>
-                  <a href="#" class="list-group-item list-group-item-action">Accra</a>
-                  <a href="#" class="list-group-item list-group-item-action">Tema</a>
-                  <a href="#" class="list-group-item list-group-item-action">Kasoa</a>
-                  <a href="#" class="list-group-item list-group-item-action">Kumasi</a>
-                  <a href="#" class="list-group-item list-group-item-action">Ho</a>
-                  <a href="#" class="list-group-item list-group-item-action">Wa</a>
+                  </h3>
+
+
+                   <?php 
+
+                  // read data from locations table
+                  $query = "SELECT * FROM locations";
+                  $select_all_locations = mysqli_query($connection, $query);
+
+                  while($row = mysqli_fetch_assoc($select_all_locations)){
+                    $location = $row['location'];
+
+                    echo  "<a href='#' class='list-group-item list-group-item-action'>{$location}</a>";
+
+                  }
+
+                   ?>
+
                 </div>
             </div>
         </div>
