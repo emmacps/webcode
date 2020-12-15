@@ -6,36 +6,35 @@
             </div>
         </div>
         <div class="row">
+
+          <?php 
+          // Selecting from listings table
+          $query = "SELECT * FROM listings";
+          $selecting_all_listings = mysqli_query($connection, $query);
+
+          while($row = mysqli_fetch_assoc($selecting_all_listings)){
+
+            $list_id = $row['list_id'];
+            $name = $row['name'];
+            $description = $row['description'];
+            $post_image = $row['post_image'];
+
+
+            ?>
+
             <div class="col-sm-4">
                 <div class="card">
-                  <img src="images/salon.jpg" class="card-img-top" alt="...">
+                  <img src="images/<?php echo $post_image; ?>" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title"><?php echo $name; ?></h5>
+                    <p class="card-text"><?php echo $description; ?></p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card">
-                  <img src="images/salon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                  <img src="images/salon.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-            </div>
+
+       <?php   }  ?>
+
         </div>
     </div>
 </section>

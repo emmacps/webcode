@@ -6,41 +6,75 @@
                       </div>
                     </form>
                     <div class="list-group mt-2">
-                      <a href="#" class="list-group-item list-group-item-action active">
+                      <h3 class="list-group-item list-group-item-action active">
                        Categories
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">Aviation</a>
-                      <a href="#" class="list-group-item list-group-item-action">Oil and Gas</a>
-                      <a href="#" class="list-group-item list-group-item-action">Tech Companies</a>
-                      <a href="#" class="list-group-item list-group-item-action">Fashion</a>
-                      <a href="#" class="list-group-item list-group-item-action">Marketing and Consultancy</a>
-                      <a href="#" class="list-group-item list-group-item-action">Advertising</a>
+                      </h3>
+
+                      <?php 
+
+                        // read data from categories table
+                        $query = "SELECT * FROM categories";
+                        $select_all_categories = mysqli_query($connection, $query);
+
+                        while($row = mysqli_fetch_assoc($select_all_categories)){
+                          $cat_title = $row['cat_title'];
+
+                          echo  "<a href='#' class='list-group-item list-group-item-action'>{$cat_title}</a>";
+
+                        }
+
+                         ?>
+
                     </div>
                     <div class="list-group mt-2">
-                      <a href="#" class="list-group-item list-group-item-action active">
+                      <h3 class="list-group-item list-group-item-action active">
                        Locations
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action">Accra</a>
-                      <a href="#" class="list-group-item list-group-item-action">Tema</a>
-                      <a href="#" class="list-group-item list-group-item-action">Kasoa</a>
-                      <a href="#" class="list-group-item list-group-item-action">Kumasi</a>
-                      <a href="#" class="list-group-item list-group-item-action">Ho</a>
-                      <a href="#" class="list-group-item list-group-item-action">Wa</a>
+                      </h3>
+
+
+                       <?php 
+
+                        // read data from locations table
+                        $query = "SELECT * FROM locations";
+                        $select_all_locations = mysqli_query($connection, $query);
+
+                        while($row = mysqli_fetch_assoc($select_all_locations)){
+                          $location = $row['location'];
+
+                          echo  "<a href='#' class='list-group-item list-group-item-action'>{$location}</a>";
+
+                        }
+
+                         ?>
+
+
                     </div>
                 </div>
+
+
                 <h1 class="display-5 mt-5">Featured Listing</h1>
-                <div class="card mb-2">             
+                  <?php 
+
+                      $query = "SELECT * FROM listings";
+                      $selecting_all_listings = mysqli_query($connection, $query);
+
+                      while($row = mysqli_fetch_assoc($selecting_all_listings)){
+
+                        $list_id = $row['list_id'];
+                        $name = $row['name'];
+                        $description = $row['description'];
+
+                        ?>
+
+                         <div class="card mb-2">             
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title"><?php echo $name; ?></h5>
+                    <p class="card-text"><?php echo $description; ?></p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
-                <div class="card">             
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>   
+
+          <?php  } ?>
+
+               
               </div> 
