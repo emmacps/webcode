@@ -1,8 +1,9 @@
   <div class="col-sm-4">
                 <div class="card">
-                    <form class="form-inline">
+                    <form action="search.php" method="post" class="form-inline">
                       <div class="form-group m-2">
-                        <input type="text" class="form-control" id="" placeholder="Search">
+                        <input name="search" type="text" class="form-control" id="" placeholder="Search">
+                        <button class="btn btn-primary" name="submit" type="submit">Search</button>
                       </div>
                     </form>
                     <div class="list-group mt-2">

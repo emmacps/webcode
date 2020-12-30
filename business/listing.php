@@ -1,66 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mystyle.css">
-
-    <title>ENT BUSINESS DIRECTORY</title>
-  </head>
+<!-- include head section -->
+<?php include "includes/head.php"; ?>
   <body>
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <a class="navbar-brand" href="#"><img class="img-fluid logo" src="images/logo.png"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Categories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Get Listed</a>
-      </li>
-     <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-     
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<?php include "includes/navigation.php"; ?>
 
 <!-- Starting banner -->
-<div class="jumbotron">
-  <h1 class="display-4">ENT BUSINESS DIRECTORY</h1>
-  <p class="lead">Be visible! Obtain new customers and generate more traffic. Improve social media shares. Get reviews and grow business reputation online. Your company profile can include contacts and description, products, photo gallery and your business location on the map.
-</p>
-  <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="#" role="button">Get Listed</a>
-</div>
+<?php include "includes/search.php"; ?>
 
-<!-- Starting body section: list directory by category -->
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="display-4 mb-5">Locations</h2>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Featured lising on homepage -->
 <section>
@@ -68,13 +14,66 @@
         <div class="row">
             <!-- Display listing based on categories -->
             <div class="col-sm-8">
+              <?php 
+
+              if(isset($_GET['list'])){
+                
+                $the_list_id = $_GET['list'];
+
+              }
+
+              $query = "SELECT * FROM listings WHERE list_id = $the_list_id ";
+              $selecting_all_listings = mysqli_query($connection, $query);
+
+              while($row = mysqli_fetch_assoc($selecting_all_listings)){
+
+                $list_id = $row['list_id'];
+                $name = $row['name'];
+                $description = $row['description'];
+                $post_image = $row['post_image'];
+                $mobile = $row['mobile'];
+                $email = $row['email'];
+                $website = $row['website'];
+                $date = $row['date'];
+                //$date =  strftime("%b %d, %Y", strtotime(//["date"]));
+
+
+              }
+
+               ?>
+
                 <div class="">
-                    <h1 class="display-4">Business title</h1>
-                    <img src="images/salon.jpg" class="card-img-top" alt="...">
+                    <h1 class="display-4"><?php echo $name ?></h1>
+                    <img src="images/<?php echo $post_image; ?>" class="card-img-top" alt="...">
                   <div class=""> 
-                    <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                 
+                   <h4>Description</h4> 
+                   <p class="lead"><?php echo $description ?></p>   
+                   <h4>Mobile Number</h4>  
+                    <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a>  <br>
+                    <h4>Email Address</h4>
+                    <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a> <br>
+                    <h4>Website</h4>
+                    <a href="<?php echo $website; ?>" target="_blank"><?php echo $website; ?></a>
+                    <h4>Date Joined</h4>
+                    <p><?php echo $date ?></p>
                   </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <!-- Setting review -->
           <ul class="nav nav-tabs" id="myTab" role="tablist">
