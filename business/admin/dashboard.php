@@ -10,7 +10,7 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">My Dashboard <?php echo $_SESSION['useremail']; ?></li>
       </ol>
       <!-- Icon Cards-->
       <div class="row">

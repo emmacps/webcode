@@ -1,5 +1,14 @@
 <?php include "includes/head.php"; ?>
 
+<?php 
+
+if(($_SESSION['role'] != 'admin')){
+
+  header("Location: dashboard.php");
+}
+
+ ?>
+
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <?php include "includes/navigation.php"; ?>

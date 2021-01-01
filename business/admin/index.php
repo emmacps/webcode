@@ -21,16 +21,22 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <?php
+        // $msg = "";
+        
+        // echo $msg
+
+         ?>
+        <form action="includes/login.php" method="post">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="">Email address</label>
+            <input class="form-control" type="email" name="useremail" placeholder="Enter email" required>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <label for="">Password</label>
+            <input class="form-control" type="password" name="userpassword" placeholder="Password" required>
           </div>
-          <a class="btn btn-primary btn-block" href="dashboard.php">Login</a>
+          <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
         </form>
       </div>
     </div>
